@@ -64,6 +64,16 @@ namespace Kai.Module
 		/// <summary>
 		/// Initialises the SDK. This function *has* to be called before receiving data from the Kai
 		/// </summary>
+		public static void Initialise(string moduleId, string moduleSecret)
+		{
+			ModuleID = moduleId;
+			ModuleSecret = moduleSecret;
+	
+			initialised = true;
+			Log.Init(Log.Level.Verbose);
+		}
+		
+		//Test-friendly overload
 		public static void Initialise(string moduleId, string moduleSecret, ActionPerformedTest actionPerformedTestObj)
 		{
 			ModuleID = moduleId;
@@ -79,7 +89,7 @@ namespace Kai.Module
 			
 			Log.Init(Log.Level.Verbose);
 		}
-
+		
 		/// <summary>
 		/// Gets the Kai object by the Kai ID
 		/// </summary>
@@ -106,7 +116,7 @@ namespace Kai.Module
 			// TODO check compatibility with SDK
 			// Test compatibility
 		}
-
+		
 		/// <summary>
 		/// Gets the list of all connected Kais
 		/// </summary>

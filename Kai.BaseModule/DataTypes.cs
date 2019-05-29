@@ -59,6 +59,7 @@ namespace Kai.Module
 		public string ModuleID;
 		public string ModuleSecret;
 		public bool IsInitialised;
+		public bool isReadConsoleDataRunning;
 		public JObject JsonData;
 	}
 }
