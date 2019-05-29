@@ -17,7 +17,7 @@ namespace KaiSDKUnitTests
 			//Act
 			KaiSDK.Initialise(ModuleID,ModuleSecret,actionPerformedTest);
 			
-			//Arrange
+			//Assert
 			Assert.True(actionPerformedTest.IsInitialised);
 			Assert.Equal(ModuleID,actionPerformedTest.ModuleID);
 			Assert.Equal(ModuleSecret,actionPerformedTest.ModuleSecret);
