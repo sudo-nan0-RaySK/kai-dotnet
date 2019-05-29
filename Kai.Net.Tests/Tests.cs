@@ -1,13 +1,15 @@
-using System;
+﻿using System;
 using  Kai.Module;
-using Xunit;
+using NUnit;
+using NUnit.Framework;
 
 namespace KaiSDKUnitTests
 {
+	[TestFixture]
 	public class KaiSDKUnitTest1
 	{
-		[Fact]
-		public void Initialise_GivenModuleIDAndSecret_SetsInitialisedTrue()
+		[Test]
+		public void BaseModule_Initialise_GivenModuleIDAndSecret_SetsInitialisedTrue()
 		{
 			//Arrange
 			string ModuleID = "some-module-name";
@@ -19,8 +21,8 @@ namespace KaiSDKUnitTests
 			
 			//Assert
 			Assert.True(actionPerformedTest.IsInitialised);
-			Assert.Equal(ModuleID,actionPerformedTest.ModuleID);
-			Assert.Equal(ModuleSecret,actionPerformedTest.ModuleSecret);
+			Assert.AreEqual(ModuleID,actionPerformedTest.ModuleID);
+			Assert.AreEqual(ModuleSecret,actionPerformedTest.ModuleSecret);
 		}
 	}
 }

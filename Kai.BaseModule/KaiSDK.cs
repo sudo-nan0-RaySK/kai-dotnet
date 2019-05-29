@@ -109,7 +109,22 @@ namespace Kai.Module
 			if(!initialised)
 				throw new ApplicationException("You must call Initialise() before trying to get data");
 
-			SetupConnections();
+			SetupConnections(null);
+			
+			SendAuth(ModuleID, ModuleSecret);
+			
+			// TODO check compatibility with SDK
+			// Test compatibility
+		}
+		
+		//Test-friendly overload
+		public static void Connect(ActionPerformedTest actionPerformedTest)
+		{
+			if(!initialised)
+				throw new ApplicationException("You must call Initialise() before trying to get data");
+
+			actionPerformedTest.MethodLevel = "SetupConnections";
+			SetupConnections(actionPerformedTest);
 			
 			SendAuth(ModuleID, ModuleSecret);
 			
@@ -256,7 +271,7 @@ namespace Kai.Module
 			Send(json.ToString(Formatting.None));
 		}
 		
-		static partial void SetupConnections();
+		static partial void SetupConnections(ActionPerformedTest actionPerformedTest);
 		static partial void Send(string data);
 
 		private static Task SendAsync(string data)

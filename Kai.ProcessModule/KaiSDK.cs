@@ -9,9 +9,13 @@ namespace Kai.Module
 	{
 		private static bool running;
 		
-		static partial void SetupConnections()
+		static partial void SetupConnections(ActionPerformedTest actionPerformedTest)
 		{
 			running = true;
+			if (actionPerformedTest != null && actionPerformedTest.MethodLevel.Equals("SetupConnections"))
+			{
+				actionPerformedTest.isReadConsoleDataRunning = true;
+			}
 			Task.Run(ReadConsoleData);
 			Console.CancelKeyPress += ConsoleCancelled;
 		}
