@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kai.ProcessModule", "Kai.Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kai.WebSocketModule", "Kai.WebSocketModule\Kai.WebSocketModule.csproj", "{F5AC2204-DD46-4D75-A3DA-7D80D81056AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaiSDKUnitTests", "KaiSDKUnitTests\KaiSDKUnitTests.csproj", "{D402EB4C-F510-43AA-9DFC-E8FD15369FF7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kai.Net.Test", "Kai.Net.Test\Kai.Net.Test.csproj", "{D402EB4C-F510-43AA-9DFC-E8FD15369FF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

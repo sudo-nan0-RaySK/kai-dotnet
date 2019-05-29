@@ -3,12 +3,15 @@ solution: Kai.Net.sln
 
 install:
     - nuget restore Kai.Net.sln
+    - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 
 script:
-    - nuget pack -IncludeReferencedProjects -properties Configuration=Release Kai.WebSocketModule/Kai.WebSocketModule.csproj -Build
-    - nuget pack -IncludeReferencedProjects -properties Configuration=Release Kai.ProcessModule/Kai.ProcessModule.csproj -Build
-    - nuget push Kai.WebSocketModule*.nupkg -ApiKey $API_KEY -Source $SOURCE_URL
-    - nuget push Kai.ProcessModule*.nupkg -ApiKey $API_KEY -Source $SOURCE_URL
+    - msbuild /p:Configuration=Release ./Kai.Net.sln
+    - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./Kai.Net.Test/bin/Release/Kai.Net.Test.dll
+#    - nuget pack -IncludeReferencedProjects -properties Configuration=Release Kai.WebSocketModule/Kai.WebSocketModule.csproj -Build
+#    - nuget pack -IncludeReferencedProjects -properties Configuration=Release Kai.ProcessModule/Kai.ProcessModule.csproj -Build
+#    - nuget push Kai.WebSocketModule*.nupkg -ApiKey $API_KEY -Source $SOURCE_URL
+#    - nuget push Kai.ProcessModule*.nupkg -ApiKey $API_KEY -Source $SOURCE_URL
 
 branches:
     only:
