@@ -3,7 +3,7 @@ solution: Kai.Net.sln
 
 install:
     - nuget restore Kai.Net.sln
-    - nnuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
+    - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
 
 script:
     - msbuild /p:Configuration=Release ./Kai.Net.sln
