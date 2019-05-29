@@ -64,12 +64,19 @@ namespace Kai.Module
 		/// <summary>
 		/// Initialises the SDK. This function *has* to be called before receiving data from the Kai
 		/// </summary>
-		public static void Initialise(string moduleId, string moduleSecret)
+		public static void Initialise(string moduleId, string moduleSecret, ActionPerformedTest actionPerformedTestObj)
 		{
 			ModuleID = moduleId;
 			ModuleSecret = moduleSecret;
-			
+	
 			initialised = true;
+			if (actionPerformedTestObj != null)
+			{
+				actionPerformedTestObj.ModuleSecret = ModuleSecret;
+				actionPerformedTestObj.ModuleID = ModuleID;
+				actionPerformedTestObj.IsInitialised = initialised;
+			}
+			
 			Log.Init(Log.Level.Verbose);
 		}
 

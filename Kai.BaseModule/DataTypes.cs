@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json.Linq;
 
 namespace Kai.Module
 {
@@ -50,5 +51,14 @@ namespace Kai.Module
 	public struct Quaternion
 	{
 		public float w, x, y, z;
+	}
+
+	public class ActionPerformedTest
+	{
+		public string MethodLevel;
+		public string ModuleID;
+		public string ModuleSecret;
+		public bool IsInitialised;
+		public JObject JsonData;
 	}
 }
